@@ -41,7 +41,7 @@ Zg = 75                                         #Impedância interna do Gerador
 
 ## Para carga em curto, Zl = 0
 ## Para carga em aberto, Zl = math.inf
-Zl = 100                                        #Impendância da carga
+Zl = 0                                       #Impendância da carga
 ##
 kmax = 100                                      #numero de passos em que dividimos o tamanho da linha de tranmissão
 Ttotal = 10.5*l/Vp                              #3.70E-5 tempo total da analise
@@ -91,31 +91,18 @@ for n in range (1, nmax):
     if Zl == 0:
         V[n][kmax-1] = 0
     else:
-        V[n][kmax-1] = (1 - betaL)*V[n-1][kmax-1] + 2*I[n-1][kmax-2]
+        V[n][kmax-1] = (1 - betaL)*V[n-1][kmax-1] + 2*I[n-1][kmax-1]
     for k in range (1,kmax-1):
         V[n][k] = V[n-1][k] - (I[n-1][k]-I[n-1][k-1])
     for k in range (kmax-1):
         I[n][k] = I[n-1][k] - (deltaT*deltaT)/(L*C*deltaZ*deltaZ)*(V[n][k+1] - V[n][k])#k+1 e k
-
-#For que percorre as matrizes obtidas a fim de procurar melhores valores para a exibição do gráfico
-for n in range (nmax): # verifica range dos eixos
-    for k in range(kmax):
-        if V[n][k] > maxTensao:
-            maxTensao = V[n][k]
-        elif V[n][k] < minTensao:
-            minTensao = V[n][k]
-        if I[n][k] > maxCorrente:
-            maxCorrente = I[n][k]
-        elif I[n][k] < minCorrente:
-            minCorrente = I[n][k]
+    I[n][kmax-1] = I[n][kmax-2]
 
 
 V = V*(deltaT/(C*deltaZ))
 figure, (voltage,current) = plt.subplots(2,1)
 voltage.grid(True)
 current.grid(True)
-print(minTensao)
-print(maxTensao)
 voltage.set_ylim(-4, 4)
 voltage.set_xlim(0, l)
 current.set_ylim(-0.1, 0.1)
