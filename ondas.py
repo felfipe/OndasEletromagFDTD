@@ -1,3 +1,4 @@
+# coding: utf-8
 ######
 ## TRABALHO DE ONDAS ELETROMAGNÉTICAS: LINHAS DE TRANSMISSÃO
 ## Authors:
@@ -41,7 +42,7 @@ Zg = 75                                         #Impedância interna do Gerador
 
 ## Para carga em curto, Zl = 0
 ## Para carga em aberto, Zl = math.inf
-Zl = 0                                       #Impendância da carga
+Zl = math.inf                                    #Impendância da carga
 ##
 kmax = 100                                      #numero de passos em que dividimos o tamanho da linha de tranmissão
 Ttotal = 10.5*l/Vp                              #3.70E-5 tempo total da analise
@@ -57,13 +58,7 @@ else:
 if Zl == math.inf:
     gamaL = math.inf
 else:
-    gamaL = (Zl - Z0)/(Z0 + Zl)
-#Definição das variaveis para plotar o grafico com um visual mais agradavel
-
-maxTensao = 0                           
-minTensao = math.inf                               
-maxCorrente = 0                       
-minCorrente = math.inf                          
+    gamaL = (Zl - Z0)/(Z0 + Zl)                         
 
 #condições iniciais para o tempo
 V[0][0] = Z0*2/(Zg+Z0)                          
@@ -101,6 +96,8 @@ for n in range (1, nmax):
 
 V = V*(deltaT/(C*deltaZ))
 figure, (voltage,current) = plt.subplots(2,1)
+thismanager = plt.get_current_fig_manager()
+thismanager.window.wm_geometry("+500+0")
 voltage.grid(True)
 current.grid(True)
 voltage.set_ylim(-4, 4)
@@ -136,4 +133,4 @@ voltage.set_autoscale_on(False)
 current.set_autoscale_on(False)
 animation = animation.FuncAnimation(figure, func = animate, frames=numpy.arange(0, nmax, (int)(kmax/10)), interval = 100, repeat = False) # ajustar kmax/10 para ajustar velocidade
 plt.show()
-    
+   
