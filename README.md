@@ -1,4 +1,4 @@
-# OndasEletromagFDTD
+# O Projeto
 
 
 O objetivo deste Projeto é desenvolver um código ou algoritmo que envolve a implementação do algoritmo FDTD (Finite-Difference Time-Domain) para visualização de tensão V(z,t)
