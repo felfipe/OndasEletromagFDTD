@@ -2,22 +2,12 @@ import numpy
 import matplotlib.pyplot as plt
 import math
 
-def figura_2_1(S, n):
-    N = numpy.linspace(1, 10, num = n)
-    N_lambda_transicao = 2*math.pi*S/math.acos(1 -2*S**2)
-    print("N de transição: "+str(N_lambda_transicao))
-    Vp = numpy.zeros(n)
-    atenuacao = numpy.zeros(n)
-    for i in range(n):
-        tau = 1 + 1/(S**2)*(math.cos(2*math.pi*S/N[i])-1)
-        if N[i] <= N_lambda_transicao:
-            atenuacao[i] = -math.log(-tau - math.sqrt(tau**2 -1))
-            k = math.pi
-        else:
-            k = math.acos(tau)
-        Vp[i] = 2*math.pi/(N[i]*k)
-    fig, ax1 = plt.subplots()
 
+
+
+def figura_2_1(S, n):
+    
+    fig, ax1 = plt.subplots();
     ax1.plot(N, atenuacao,'g',label = 'Atenuação')
     ax2 = ax1.twinx()
     ax2.plot(N, Vp,'b', label = 'Velocidade de fase numérica')
