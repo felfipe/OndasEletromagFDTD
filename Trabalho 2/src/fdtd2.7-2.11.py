@@ -44,8 +44,10 @@ def plot_2_waves(U1, U2, nmax, kmax):
     U_plot.set_ylim(-2, 2)
     U_plot.set_xlabel("coordenada na malha i")
     U_plot.set_ylabel("função de onda u(x,t)")
-    U_plot1, = U_plot.plot(numpy.linspace(0, kmax-2, kmax), U1[0], 'r')
-    U_plot2, = U_plot.plot(numpy.linspace(0, kmax-2, kmax), U2[0], 'g--')
+    U_plot1, = U_plot.plot(numpy.linspace(
+        0, kmax-2, kmax), U1[0], 'r',)
+    U_plot2, = U_plot.plot(numpy.linspace(
+        0, kmax-2, kmax), U2[0], 'g--',)
     animation1 = animation.FuncAnimation(figure, func=animate, frames=numpy.arange(0, nmax, (int)(
         kmax/100)), interval=100, repeat=False)  # ajustar kmax/50 para ajustar velocidade
     plt.show()

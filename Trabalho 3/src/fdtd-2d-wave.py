@@ -73,7 +73,7 @@ def fdtd_1d(delta, deltaT, nmax, imax, sigma, sigma_estrela, source):
             Ez[n][i] = Ca*Ez[n-1][i] + Cb*(Hy[n][i] - Hy[n][i-1])
         Ez[n][1] = source(n)
         Ez[n][imax-2] = 0
-        # Hy[n][imax-2] = 0
+        # Hy[n][imax-2] = 0 # PARA O EXERCÍCIO 3.4
     return Ez, Hy
 
 
@@ -84,7 +84,7 @@ def plot_wave(U, nmax, imax, delta):
 
     figure, U_plot = plt.subplots()
     U_plot.grid(True)
-    U_plot.set_ylim(-3, 3)  # -0.03, 0.03 para Hy
+    U_plot.set_ylim(-1, 1)  # -0.03, 0.03 para Hy
     U_plot.set_xlabel("coordenada na malha i")
     U_plot.set_ylabel("função de onda Ez(x,t)")
     U_plot1, = U_plot.plot(numpy.linspace(0, imax, imax), U[0], 'r')
@@ -104,7 +104,7 @@ def plot_3D(U, nmax, imax, jmax, delta):
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
     X, Y = numpy.meshgrid(x, y)
-    ax.set_zlim(-1.2, 1.2)
+    ax.set_zlim(-1.0, 1.0)
     plot = [ax.plot_surface(X, Y, U[0], rstride=5, cstride=5, cmap=cm.magma)]
     animation1 = animation.FuncAnimation(fig, func=animate, frames=numpy.arange(0, nmax, (int)(
         nmax/100)), fargs=(U, plot), interval=100, repeat=False)  # ajustar kmax/10 para ajustar velocidade
@@ -174,7 +174,7 @@ def ex_3_8():
     jmax = 100
     delta = 1
     deltaT = 1.0*delta/(c*math.sqrt(2))
-    sigma = 1.0E-11              # ORDEM de sigma 10^-6
+    sigma = 5.0E-4              # ORDEM de sigma 10^-4
     sigma_estrela = 0
 
     def source(n): return sin_source(
@@ -204,4 +204,4 @@ def ex_3_9():
     plot_3D(Ez, nmax, imax, jmax, delta)
 
 
-ex_3_6()
+ex_3_9()
