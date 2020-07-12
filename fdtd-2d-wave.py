@@ -137,6 +137,19 @@ def ex_3_5():
     plot_wave(Ez, nmax, imax, delta)
 
 
+def ex_3_6():
+    nmax = 600
+    imax = 301
+    delta = 1
+    deltaT = 1.01*delta/c
+    sigma = 0
+    sigma_estrela = 0
+    def source(n): return sin_source(n, freq=4*(2*math.pi/nmax))
+    Ez, Hy = fdtd_1d(delta, deltaT, nmax, imax, sigma, sigma_estrela, source)
+    # plot_wave(Ez, nmax, imax, delta)
+    plot_wave(Ez, nmax, imax, delta)
+
+
 def ex_3_7():
     nmax = 100
     imax = 100
@@ -191,4 +204,4 @@ def ex_3_9():
     plot_3D(Ez, nmax, imax, jmax, delta)
 
 
-ex_3_5()
+ex_3_6()
