@@ -8,7 +8,8 @@ Todos os parâmetros são configuráveis no código, Tais como Z0 (impedância c
 Para adotar uma impedância infinita a Zl, basta atribuir Zl = math.inf.
 Os demais parâmetros também estão explicados no código.
 
-![](./exemple/projeto1.gif)
+### Exemplo
+![](./examples/projeto1.gif)
 
 # Projeto 2
 O objetivo deste projeto é implementar o algoritmo FDTD (Finite-Diference Time-Domain) para a visualização do Campo Elétrico e do Campo Magnético sobre um espaço unidimensional, bem como analisar a estabilidade do algoritmo através da relação entre tamanho dos passos dt e dx, relacionados por S.
@@ -17,7 +18,7 @@ O objetivo deste projeto é implementar o algoritmo FDTD (Finite-Diference Time-
 O objetivo deste projeto é implementar o algortimo de Yee para a visualização de Campo Elétrico e Magnético sobre um espaço unidimensional (1-D) e bidimensional (2-D). Parâmetros como condutância, Permissividade e Permeabilidade são ajustáveis. Há três tipos de excitações configuradas: Degrau Unitário, Pulso Gaussiano e Senoidal. Essas fontes estão posicionadas no centro da malha bidimensional.
 
 ### Exemplo
-![](./example/projeto3.gif)
+![](./examples/projeto3.gif)
 
 # Bibliotecas Necessárias
 
