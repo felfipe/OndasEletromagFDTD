@@ -12,7 +12,10 @@ Os demais parâmetros também estão explicados no código.
 ![](./examples/projeto1.gif)
 
 # Projeto 2
-O objetivo deste projeto é implementar o algoritmo FDTD (Finite-Diference Time-Domain) para a visualização do Campo Elétrico e do Campo Magnético sobre um espaço unidimensional, bem como analisar a estabilidade do algoritmo através da relação entre tamanho dos passos dt e dx, relacionados por S.
+O objetivo deste projeto é implementar o algoritmo FDTD (Finite-Diference Time-Domain) para a visualização do Campo Elétrico e do Campo Magnético sobre um espaço unidimensional, bem como analisar a estabilidade do algoritmo através da relação entre tamanho dos passos dt e dx, relacionados por S. Os parâmetros são ajustáveis, bem como a excitação no ponto inicial, que pode ser: Degrau Unitário, Pulso Gaussiano e Senoidal. Com pouca adaptação no código é possível criar uma fonte de Campo Elétrico arbitrária.
+
+### Exemplo
+![](./examples/projeto2.gif)
 
 # Projeto 3
 O objetivo deste projeto é implementar o algortimo de Yee para a visualização de Campo Elétrico e Magnético sobre um espaço unidimensional (1-D) e bidimensional (2-D). Parâmetros como condutância, Permissividade e Permeabilidade são ajustáveis. Há três tipos de excitações configuradas: Degrau Unitário, Pulso Gaussiano e Senoidal. Essas fontes estão posicionadas no centro da malha bidimensional.
@@ -25,5 +28,7 @@ O objetivo deste projeto é implementar o algortimo de Yee para a visualização
 Para executar este código é necessário ter o interpretador python instalado, bem como os módulos que serão utilizados no código. É possível instalar os módulos através do comando pip:
 
 pip install matplotlib
+
 pip install numpy
+
 pip install scipy
