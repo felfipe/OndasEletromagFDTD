@@ -8,7 +8,8 @@ Todos os parâmetros são configuráveis no código, Tais como Z0 (impedância c
 Para adotar uma impedância infinita a Zl, basta atribuir Zl = math.inf.
 Os demais parâmetros também estão explicados no código.
 
-![](./exemples/projeto1.gif)
+### Exemplo
+![](./examples/projeto1.gif)
 
 # Projeto 2
 O objetivo deste projeto é implementar o algoritmo FDTD (Finite-Diference Time-Domain) para a visualização do Campo Elétrico e do Campo Magnético sobre um espaço unidimensional, bem como analisar a estabilidade do algoritmo através da relação entre tamanho dos passos dt e dx, relacionados por S.
