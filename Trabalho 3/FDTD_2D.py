@@ -204,4 +204,4 @@ def ex_3_9():
     plot_3D(Ez, nmax, imax, jmax, delta)
 
 
-ex_3_9()
+ex_3_7()
